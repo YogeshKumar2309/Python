@@ -1,0 +1,57 @@
+
+{% extends "core/base.html" %}
+
+{% block title %}Terms & Conditions{% endblock %}
+
+{% block body %}
+<section class="page-header">
+    <div class="container">
+        <h1 class="section-title">Terms & Conditions</h1>
+    </div>
+</section>
+
+<article class="content-page">
+    <p>
+        By using YogeshWebDev, you agree to use this website
+        lawfully and responsibly.
+    </p>
+
+    <h2>Website Content</h2>
+    <p>
+        Articles and buying guides are provided for general
+        informational purposes. We aim for accuracy but cannot
+        guarantee that every detail is always current.
+    </p>
+
+    <h2>Prices and Purchases</h2>
+    <p>
+        Third-party sellers control their own prices, stock,
+        payment terms, shipping, returns and warranties.
+        Check those terms before purchasing.
+    </p>
+
+    <h2>External Links</h2>
+    <p>
+        We may link to external websites and affiliate partners.
+        Visiting those sites is subject to their terms and policies.
+    </p>
+
+    <h2>Intellectual Property</h2>
+    <p>
+        Do not reproduce our original content without permission
+        where permission is legally required.
+    </p>
+
+    <h2>Changes and Contact</h2>
+    <p>
+        We may update these terms as the website develops.
+        Contact us through our
+        <a href="{% url 'contact' %}">Contact page</a> with questions.
+    </p>
+
+    <p>
+        Review these terms for your actual business model and
+        applicable laws before publishing.
+    </p>
+</article>
+{% endblock %}

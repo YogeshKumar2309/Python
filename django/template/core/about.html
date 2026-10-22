@@ -1,0 +1,50 @@
+
+{% extends "core/base.html" %}
+
+{% block title %}About Us{% endblock %}
+
+{% block body %}
+<section class="page-header">
+    <div class="container">
+        <h1 class="section-title">About YogeshWebDev</h1>
+        <p class="section-description">
+            Helping people make more informed technology purchases.
+        </p>
+    </div>
+</section>
+
+<article class="content-page">
+    <h2>Our Mission</h2>
+    <p>
+        YogeshWebDev is a technology-focused website designed to help
+        readers explore useful products, understand their features
+        and compare available options before purchasing.
+    </p>
+
+    <h2>What We Publish</h2>
+    <ul>
+        <li>Product reviews and comparisons.</li>
+        <li>Technology buying guides.</li>
+        <li>Practical tips for choosing useful accessories.</li>
+    </ul>
+
+    <h2>How We Earn</h2>
+    <p>
+        Some pages may contain affiliate links. If you purchase through
+        eligible links, we may earn a commission at no additional cost
+        to you. We may also display advertisements.
+    </p>
+
+    <h2>Editorial Approach</h2>
+    <p>
+        We aim to provide clear, useful and accurate information.
+        Product claims, prices and availability should be checked
+        against current information before publication.
+    </p>
+
+    <p>
+        Have a suggestion? Visit our
+        <a href="{% url 'contact' %}">Contact page</a>.
+    </p>
+</article>
+{% endblock %}

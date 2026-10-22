@@ -1,0 +1,58 @@
+
+{% extends "core/base.html" %}
+
+{% block title %}Contact Us{% endblock %}
+
+{% block body %}
+<section class="page-header">
+    <div class="container">
+        <h1 class="section-title">Contact Us</h1>
+        <p class="section-description">
+            Questions, corrections or suggestions? Send us a message.
+        </p>
+    </div>
+</section>
+
+<section class="container py-5">
+    <div class="contact-form mx-auto" style="max-width: 650px;">
+
+        {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-info">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label for="name" class="form-label">Your name</label>
+                <input class="form-control" id="name"
+                       name="name" required maxlength="100">
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input class="form-control" id="email"
+                       type="email" name="email" required maxlength="254">
+            </div>
+
+            <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control" id="message"
+                          name="message" rows="5" required
+                          maxlength="5000"></textarea>
+            </div>
+
+            <button class="btn btn-brand" type="submit">
+                Send Message
+            </button>
+        </form>
+
+        <p class="small text-secondary mt-3 mb-0">
+            The form needs email delivery or database storage to be
+            fully functional.
+        </p>
+    </div>
+</section>
+{% endblock %}

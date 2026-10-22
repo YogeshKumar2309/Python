@@ -1,0 +1,56 @@
+
+{% extends "core/base.html" %}
+
+{% block title %}Products & Buying Guides{% endblock %}
+
+{% block body %}
+<section class="page-header">
+    <div class="container">
+        <h1 class="section-title">Products & Buying Guides</h1>
+        <p class="section-description">
+            Explore product recommendations and discover useful technology.
+        </p>
+    </div>
+</section>
+
+<section class="section-space">
+    <div class="container">
+        <div class="row g-4">
+            {% for product in products %}
+            <div class="col-md-6 col-lg-4">
+                <article class="product-card">
+                    <div class="product-image">
+                        {% if product.image %}
+                        <img src="{{ product.image }}"
+                             alt="{{ product.name }}">
+                        {% else %}
+                        <span class="text-secondary">Image coming soon</span>
+                        {% endif %}
+                    </div>
+
+                    <div class="product-content">
+                        <span class="product-category">
+                            {{ product.category }}
+                        </span>
+                        <h3>{{ product.name }}</h3>
+                        <p>{{ product.description }}</p>
+                        <strong>{{ product.price }}</strong>
+
+                        {% if product.url %}
+                        <a class="btn btn-brand w-100 mt-3"
+                           href="{{ product.url }}"
+                           target="_blank"
+                           rel="sponsored nofollow noopener">
+                            Check Product →
+                        </a>
+                        {% endif %}
+                    </div>
+                </article>
+            </div>
+            {% empty %}
+            <p>No products have been added yet.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,126 @@
+
+{% extends "core/base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block meta_description %}
+Discover technology products, useful accessories, product reviews and buying guides at YogeshWebDev.
+{% endblock %}
+
+{% block body %}
+
+<section class="hero">
+    <div class="container">
+        <span class="hero-label">YOUR SMARTER BUYING GUIDE</span>
+
+        <h1>Find the right tech for your everyday life.</h1>
+
+        <p>
+            Explore useful products, compare your options and discover
+            technology that fits your needs and budget.
+        </p>
+
+        <div class="d-flex flex-wrap gap-3 mt-4">
+            <a href="{% url 'products' %}" class="btn btn-brand">
+                Explore Products →
+            </a>
+
+            <a href="{% url 'about' %}"
+               class="btn btn-outline-secondary px-4 py-2">
+                About Us
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="section-space">
+    <div class="container">
+
+        <div class="mb-4">
+            <h2 class="section-title">Featured Products</h2>
+            <p class="section-description">
+                Explore useful accessories for your workspace.
+            </p>
+        </div>
+
+        <div class="row g-4">
+            {% for product in products %}
+            <div class="col-sm-6 col-lg-4">
+                <article class="product-card">
+
+                    <div class="product-image">
+                        {% if product.image %}
+                        <img src="{{ product.image }}"
+                             alt="{{ product.name }}">
+                        {% else %}
+                        <span class="text-secondary">
+                            Product image coming soon
+                        </span>
+                        {% endif %}
+                    </div>
+
+                    <div class="product-content">
+                        <span class="product-category">
+                            {{ product.category }}
+                        </span>
+
+                        <h3>{{ product.name }}</h3>
+                        <p>{{ product.description }}</p>
+
+                        <div class="d-flex justify-content-between
+                                    align-items-center gap-2">
+                            <span class="fw-semibold">
+                                {{ product.price }}
+                            </span>
+
+                            {% if product.url %}
+                            <a href="{{ product.url }}"
+                               target="_blank"
+                               rel="sponsored nofollow noopener"
+                               class="btn btn-brand btn-sm">
+                                View Deal →
+                            </a>
+                            {% else %}
+                            <span class="small text-secondary">
+                                Coming soon
+                            </span>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                </article>
+            </div>
+            {% empty %}
+            <div class="col-12">
+                <p>No products available yet.</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="text-center mt-5">
+            <a href="{% url 'products' %}"
+               class="btn btn-outline-primary px-4 py-2">
+                View All Products
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<section class="section-space bg-light">
+    <div class="container text-center">
+        <h2 class="section-title">Buy smarter, not harder.</h2>
+
+        <p class="section-description mx-auto"
+           style="max-width: 650px">
+            Our goal is to help you understand product features,
+            compare alternatives and make informed buying decisions.
+        </p>
+
+        <a href="{% url 'about' %}" class="btn btn-brand mt-3">
+            Learn About Us
+        </a>
+    </div>
+</section>
+
+{% endblock %}
